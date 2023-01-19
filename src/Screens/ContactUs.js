@@ -2,12 +2,12 @@ import React from 'react'
 import {View , Text} from 'react-native'
 
 
-const Sample = () => {
+const ContactUs = () => {
   return (
     <View>
-        <Text>krishna kale</Text>
+        <Text>ContactUs</Text>
     </View>
   )
 }
 
-export default Sample
+export default ContactUs
