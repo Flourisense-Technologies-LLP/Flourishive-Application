@@ -1,9 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView, FlatList, Image, Dimensions } from 'react-native'
-import ViewSlider from 'react-native-view-slider'
 
 const { height, width } = Dimensions.get('window')
-
 
 const cardData = [
   {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 const Clients = () => {
@@ -21,8 +21,23 @@ const Clients = () => {
       contentContainerStyle={styles.list}
       />
     </View>
+    <View style={{flex:1}}>
+      <View style={{height: 60, justifyContent:'center'}}>
+                <Text
+                  style={styles.heading_text} numberOfLines={2}>
+                    OUR HAPPY CLIENTS
+                </Text>
+              </View>
+      <FlatList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      pagingEnabled
+      data={CLIENTS_REVIEW_DATA}
+      renderItem={ renderClientsReviewView }
+      keyExtractor={item=>item.id}
+      />
+    </View>
     </ScrollView>
-    
   );
 }
 export default Clients
@@ -80,6 +95,63 @@ const renderClientsCardView = ({item}) => {
       clientItem={item}/>
   );
 };
+const CLIENTS_REVIEW_DATA = [
+  {
+    id: 1,
+    client_name: 'John Doe CEO at Fern Stays',
+    quote: 'Flourisense made my life easier as I no longer require a tech co-founder for my startup idea.',
+    profile_img: require('../Asset/clients/client_astro_rishi.png'),
+  },
+  {
+    id: 2,
+    client_name: 'Margaret Curtis Director at Axio Prime',
+    quote: 'Flourisense is probably the best B2B tech solution provider in the market.',
+    profile_img: require('../Asset/clients/client_astro_rishi.png'),
+  },
+  {
+    id: 3,
+    client_name: 'Abhijeet CFO at REGAL',
+    quote: 'The Best Web Development Team',
+    profile_img: require('../Asset/clients/client_astro_rishi.png'),
+  },
+]
+const ClientsReviewCardView = ({clientItem}) => (
+  <View
+    style={styles.review_card_layout}>
+    
+    <ImageBackground
+      source={require("../Asset/clients/quote_card_background.png")}
+      resizeMode='stretch'
+      style={styles.review_background_image}>
+      <View style={{flex: 1, flexDirection: 'row',}}>
+      <View style={{flex: 1, flexDirection: 'column'}}>
+        <View style={{height:25, alignItems: 'flex-start'}}>
+          <Image resizeMode='stretch' style={{ height:20 , width:20}} source={require("../Asset/clients/quote.png")}/>
+        </View>
+        <View style={{flex: 1,alignItems: 'flex-start'}}>
+          <Text style={styles.our_clients_card_quote_text} numberOfLines={5}>
+            {clientItem.quote}
+          </Text>
+        </View>
+        <View style={{alignItems: 'flex-start'}}>
+          <Text style={styles.our_clients_card_client_name_text} numberOfLines={2}>
+            {clientItem.client_name}
+          </Text>
+        </View>
+      </View>
+      <View style={{ flexDirection:'column', alignItems:'center', justifyContent:'center', width:120}}>
+        <Image style={{ height:100, width:100 }} source={require("../Asset/clients/profile_photo.png")}/>
+      </View>
+      </View>
+    </ImageBackground>
+  </View>
+);
+const renderClientsReviewView = ({item}) => {
+  return (
+    <ClientsReviewCardView
+      clientItem={item}/>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -97,6 +169,11 @@ const styles = StyleSheet.create({
     height: 170,
     width: 180,
   },
+  review_background_image: {
+    flex: 1,
+    justifyContent: 'center',
+    padding:16
+  },
   text: {
     color: 'white',
     fontSize: 42,
@@ -113,6 +190,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'flex-start',
     margin:3
+  },
+  review_card_layout:{
+    height: 170,
+    width: 360,
+    borderRadius: 10,
+    margin:16,
   },
   heading_text:{
     color: 'red',
@@ -139,5 +222,16 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {width: 1, height: 1},
     textShadowRadius: 10},
+
+    our_clients_card_quote_text: {
+      color: '#ffffff',
+      fontSize: 14,
+    },
+  
+    our_clients_card_client_name_text: {
+      color: '#ffffff',
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
 });
 
