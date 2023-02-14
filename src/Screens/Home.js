@@ -1,36 +1,135 @@
-import React from 'react'
-import {View , Text, Image} from 'react-native'
-
+import React from 'react';
+import {View, Text, Image, Button} from 'react-native';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 const Home = () => {
   return (
-    <View style={{flex: 1, padding: 11}}>
-
-        <View style={{backgroundColor: '#E9282B', height: 345, alignItems: 'center', justifyContent: 'center'}}>
-          <Image source={require('../Asset/Home/flourisense.jpg')}/>
-          <Text style={{color: '#FFFFFF', fontSize: 22, paddingTop: 50}}>
-            Welcome to flourisense
-          </Text>
+    <ScrollView>
+      <View style={{flex: 1, flexDirection: 'column', padding: 8}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 32,
+            marginBottom: 32,
+            padding: 16,
+          }}>
+          <Image source={require('../Asset/Home/flourisense.jpg')} />
         </View>
 
         <View>
-          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', justifyContent: 'center', paddingBottom: 20, paddingTop: 20}}>
-            Here's why people choose to work with Flourisense?
-          </Text>
-
-          <Text style={{color: '#0093D3', fontWeight: 18, fontWeight: 'bold', paddingBottom: 15}}>
-            Our Specialization
-          </Text>
-
-          <Text>
-            A great services educates and informs your audience about the variety of services your business offers.
-            It describes how your services benefit those who use them and guides people in the direction of services that will be most valuable for them.
-          </Text>
-
+          <View style={{marginVertical: 16, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 'bold',
+                color: '#E9282B',
+                textAlign: 'center',
+              }}>
+              OUR AMAZING CLIENTS
+            </Text>
+          </View>
+          <View style={{marginVertical: 8, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: 'bold',
+                color: '#000000',
+                textAlign: 'center',
+              }}>
+              Solving business problems is in our DNA. And Flourisense tech has
+              the technology expertise to make this happen.
+            </Text>
+          </View>
         </View>
-        
-    </View>
-  )
-}
 
-export default Home
+        <View>
+          <View style={{marginVertical: 16, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 'bold',
+                color: '#E9282B',
+                textAlign: 'center',
+              }}>
+              HERE’S WHY PEOPLE CHOOSE TO WORK WITH FLOURISENSE
+            </Text>
+          </View>
+          <View style={{marginVertical: 8, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: 'bold',
+                color: '#000000',
+                textAlign: 'center',
+              }}
+              numberOfLines={5}
+              >
+              Flourisense designs and builds intelligent, cost-effective and
+              intuitive web applications, cloud systems, desktop applications
+              and mobile apps that help streamline processes for businesses as
+              well as create new revenue streams for start-ups and established
+              businesses alike. With office in Pune, Flourisense is the India’s
+              leading bespoke software development company, with a fully
+              in-house 300+ team of expert software developers and technology
+              professionals specialising in both Microsoft and the MEAN stack.
+            </Text>
+          </View>
+          <View style={{marginVertical: 8, alignItems: 'center'}}>
+            <TouchableOpacity
+              onPress={null}
+              accessibilityLabel="Learn more about opportunities at flourisense"
+              style={{
+                backgroundColor: '#E9282B',
+                padding: 12,
+                borderRadius: 5,
+              }}>
+              <Text style={{color: '#fff', fontWeight: 'bold'}}>CALL US TODAY</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View>
+          <View style={{marginVertical: 16, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 'bold',
+                color: '#E9282B',
+                textAlign: 'center',
+              }}>
+              CONNECT WITH US
+            </Text>
+          </View>
+          <View style={{marginVertical: 8, alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: 'bold',
+                color: '#000000',
+                textAlign: 'center',
+              }}>
+              We Are Looking For Creative People For Web/App Internship
+              Opportunities
+            </Text>
+          </View>
+          <View style={{marginVertical: 8, alignItems: 'center'}}>
+            <TouchableOpacity
+              onPress={null}
+              accessibilityLabel="Learn more about opportunities at flourisense"
+              style={{
+                backgroundColor: '#E9282B',
+                padding: 12,
+                borderRadius: 5,
+              }}>
+              <Text style={{color: '#fff', fontWeight: 'bold'}}>JOIN US TODAY</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+export default Home;
