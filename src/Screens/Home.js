@@ -5,11 +5,12 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native-gesture-handler';
-import { color, processColor } from 'react-native-reanimated';
 
 const Home = () => {
   return (
-    <ScrollView>
+    <View>
+      <ImageBackground source={require('../Asset/Home/background.png')} >
+      <ScrollView style={{ImageBackground:require("../Asset/Home/background.png")}} >
       <View style={{flex: 1, flexDirection: 'column', margin: 8}}>
         <View
           style={{
@@ -204,7 +205,11 @@ const Home = () => {
           />
         </View>
       </View>
-    </ScrollView>
+      </ScrollView>
+      </ImageBackground>
+      
+    </View>
+    
   );
 };
 export default Home;
