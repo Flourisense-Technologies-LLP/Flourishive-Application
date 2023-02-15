@@ -1,11 +1,13 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 
-const Button = ({title, onPress = () => {}}) => {
+const Button = ({title, onPress = () => {}, navi}) => {
+  const navigation = useNavigation()
   return (
     <View style={{paddingTop: 33}}>
     <TouchableOpacity 
-        onPress={onPress} 
+        onPress={() => navigation.navigate("DrawerNavigation")}
         style={{height: 55, 
                 width: '100%', 
                 backgroundColor: '#E9282B', 

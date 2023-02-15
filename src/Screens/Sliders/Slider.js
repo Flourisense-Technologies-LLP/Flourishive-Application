@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import DrawerNavigation from '../../Navigations/DrawerNavigation';
+import SignIn from '../Authentication/SignIn';
 
 const Data = [
   {
@@ -103,7 +104,7 @@ const Slider = () => {
   }
 
   return(
-      <DrawerNavigation/>
+    <SignIn/>
   )
 
 
