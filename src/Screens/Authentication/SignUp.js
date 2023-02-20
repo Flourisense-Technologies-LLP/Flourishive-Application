@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Text, View, SafeAreaView } from 'react-native'
 import Button from './Button'
 import Input from './Input'
 
 const SignUp = () => {
+    const navigation = useNavigation()
     return (
         <SafeAreaView style ={{flex: 1, padding: 16}}>
         <View>
