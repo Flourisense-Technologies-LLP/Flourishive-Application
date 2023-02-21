@@ -5,13 +5,10 @@ import { FlatList, ScrollView } from 'react-native-gesture-handler';
 const Clients = () => {
   return (
     <ScrollView>
-      <View style={{flex:1}}>
-      <View style={{height: 60, justifyContent:'center'}}>
-                <Text
-                  style={styles.heading_text} numberOfLines={2}>
-                    OUR CLIENTS
-                </Text>
-              </View>
+      <View style={styles.main}>
+      <View style={styles.headerWrapper}>
+          <Text style={styles.heading}>OUR CLIENTS</Text>
+      </View>
       <FlatList
       data={CLIENTS_DATA}
       renderItem={ renderClientsCardView }
@@ -20,14 +17,10 @@ const Clients = () => {
       style={styles.container}
       contentContainerStyle={styles.list}
       />
-    </View>
-    <View style={{flex:1}}>
-      <View style={{height: 60, justifyContent:'center'}}>
-                <Text
-                  style={styles.heading_text} numberOfLines={2}>
-                    OUR HAPPY CLIENTS
-                </Text>
-              </View>
+    
+    <View style={styles.headerWrapper}>
+          <Text style={styles.heading}>OUR HAPPY CLIENTS</Text>
+      </View>
       <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -36,7 +29,7 @@ const Clients = () => {
       renderItem={ renderClientsReviewView }
       keyExtractor={item=>item.id}
       />
-    </View>
+      </View>
     </ScrollView>
   );
 }
@@ -153,6 +146,19 @@ const renderClientsReviewView = ({item}) => {
   );
 };
 const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  headerWrapper: {
+    marginHorizontal: 15,
+    marginVertical: 10,
+  },
+  heading: {
+    fontSize: 18,
+    color: '#E9282B',
+    fontFamily: 'Roboto-Bold',
+  },
   container: {
     flex: 1,
     padding: 8,

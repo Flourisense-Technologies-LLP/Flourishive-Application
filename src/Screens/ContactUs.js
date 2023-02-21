@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TextInput, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
+import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const ContactUs = () => {
   return (
     <View style={styles.main}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}
+  showsHorizontalScrollIndicator={false}>
         <View style={styles.headerWrapper}>
           <Text style={styles.heading}>Contact INFO</Text>
         </View>
@@ -13,7 +15,7 @@ const ContactUs = () => {
         <View style={styles.infoMainWrapper}>
           <View style={styles.infoWrapper}>
             <View style={styles.infoImgWrapper}>
-              <Image />
+              <Image source={require('../Asset/callIcon.png')} style={{height:20,width:20,resizeMode:'contain'}}/>
             </View>
             <View>
               <Text style={styles.infoHeading}>Call Us</Text>
@@ -22,7 +24,7 @@ const ContactUs = () => {
           </View>
           <View style={styles.infoWrapper}>
             <View style={styles.infoImgWrapper}>
-              <Image />
+              <Image source={require('../Asset/LocationIcon.png')} style={{height:20,width:20,resizeMode:'contain'}}/>
             </View>
             <View>
               <Text style={styles.infoHeading}>Our Location</Text>
@@ -34,7 +36,7 @@ const ContactUs = () => {
         <View style={styles.infoMainWrapper}>
           <View style={styles.infoWrapper}>
             <View style={styles.infoImgWrapper}>
-              <Image />
+              <Image source={require('../Asset/EmailIcon.png')} style={{height:20,width:20,resizeMode:'contain'}}/>
             </View>
             <View>
               <Text style={styles.infoHeading}>Our Email</Text>
@@ -43,7 +45,7 @@ const ContactUs = () => {
           </View>
           <View style={styles.infoWrapper}>
             <View style={styles.infoImgWrapper}>
-              <Image />
+              <Image source={require('../Asset/ClockIcon.png')} style={{height:20,width:20,resizeMode:'contain'}}/>
             </View>
             <View>
               <Text style={styles.infoHeading}>Working Hours</Text>
@@ -69,7 +71,7 @@ const ContactUs = () => {
           </View>
           <Text style={styles.placeholderText}>E-mail</Text>
           <TextInput placeholder="E-mail" style={styles.inputFeild} />
-          <Text style={styles.placeholderText}>Message</Text>
+          <Text style={styles.placeholderText}>Number</Text>
           <TextInput placeholder="Number" style={styles.inputFeild} />
           <Text style={styles.placeholderText}>Subject</Text>
           <TextInput placeholder="Subject" style={styles.inputFeild} />
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+    paddingHorizontal:15
   },
   headerWrapper: {
     marginHorizontal: 15,
@@ -105,7 +108,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     color: '#E9282B',
   },
   infoMainWrapper: {
@@ -125,38 +128,49 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6DBDB',
     borderRadius: 50,
     marginHorizontal: 10,
+    alignItems:'center',
+    justifyContent:'center'
   },
   infoHeading: {
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily:'Roboto-Bold',
     color: '#0093D3',
   },
   infoText: {
     fontSize: 12,
-    fontWeight: '600',
+    fontFamily:'Roboto-Medium',
     color: '#838383',
   },
   placeholderText: {
     marginVertical: 10,
     fontSize: 15,
-    fontWeight: 'bold',
-    color: '#000000',
+    fontFamily:'Roboto-Bold',
+    color: '#000',
   },
   inputFeild: {
     width: '100%',
     height: 40,
     borderWidth: 1,
+    borderRadius:5,
+    borderColor:'#D9D0E3',
+    paddingHorizontal:20
   },
   halfInputFeild: {
     width: '49%',
     height: 40,
     borderWidth: 1,
+    borderRadius:5,
+    borderColor:'#D9D0E3',
+    paddingHorizontal:20
   },
   textAreaFeild: {
     width: '100%',
     height: 120,
     borderWidth: 1,
     textAlignVertical: 'top',
+    borderRadius:5,
+    borderColor:'#D9D0E3',
+    paddingHorizontal:20
   },
   buttonWrapper: {
     width: 120,
@@ -168,7 +182,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     color: '#fff',
   },
 });

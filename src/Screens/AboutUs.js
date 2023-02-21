@@ -1,7 +1,46 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image, ScrollView,FlatList} from 'react-native';
+// import Carousel from 'react-native-snap-carousel';
+
+const Data = [
+  {
+    id:1,
+    name:'Jhon Doe',
+    desc:'this is ver good  company that full fills my all requirements on time',
+    img:require('../Asset/satya.jpg'),
+    company:'fern stays'
+  },
+  {
+    id:2,
+    name:'Sundar Pichai',
+    desc:'this is ver good  company that full fills my all requirements on time',
+    img:require('../Asset/pichai.jpg'),
+    company:'Google'
+  },
+  {
+    id:3,
+    name:'Elon Musk',
+    desc:'this is ver good  company that full fills my all requirements on time',
+    img:require('../Asset/elon.jpeg'),
+    company:'Tesla'
+  },
+]
 
 const AboutUs = () => {
+
+  const Item = ({item}) => {
+    return(
+      <View style={{width:200,backgroundColor:'#132239',alignItems:'center',padding:10 , margin:10}}>
+          <Image source={require('../Asset/quotesIcon.png')} style={{height:30,width:30,tintColor:'#fff',resizeMode:'contain'}}/>
+          <Text style={styles.clientCardDesc}>“"Flourisense made my life easier as I no longer require a tech co-founder for my startup idea."”</Text>
+          <Image source={item.img} style={{height:50,width:50,borderRadius:50}}/>
+          <Text style={styles.clientCardName}>{item.name}</Text>
+          <Text style={styles.clientCardCom}>CEO at {item.company}</Text>
+      </View>
+    );
+  }
+
+
   return (
     <View style={styles.main}>
       <ScrollView>
@@ -43,8 +82,14 @@ const AboutUs = () => {
       <View style={styles.headerWrapper}>
         <Text style={styles.heading}>Happy Customer’s</Text>
       </View>
-      <View style={{height:250}}>
-
+      <View>
+        <FlatList 
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          data={Data}
+          renderItem={({item})=><Item item={item}/>}
+          keyExtractor={item => item.id}
+        />
       </View>
 
 
@@ -52,8 +97,8 @@ const AboutUs = () => {
         <Text style={styles.heading}>Our Story</Text>
       </View>
       <View style={{alignItems:'center' , justifyContent:'center' , paddingHorizontal:20}}>
-        <Image source={require('../Asset/team.jpeg')} style={{height:150 , width:'100%',borderWidth:1,borderColor:'#000000'}}/>
-        <Text style={{textAlign:'center' , fontSize:18 , marginVertical:10 , color:'#232323'}}>We the Flourisense who believe in dreams. Our mission is to provide a quality services to our client that will help their companies  prosper and growth.</Text>
+        <Image source={require('../Asset/team.jpeg')} style={{height:150 , width:'100%',borderWidth:1,borderColor:'#D9D0E3'}}/>
+        <Text style={{textAlign:'center' , fontSize:18 , marginVertical:10 , color:'#232323',fontFamily:'Roboto-Regular'}}>We the Flourisense who believe in dreams. Our mission is to provide a quality services to our client that will help their companies  prosper and growth.</Text>
       </View>
    
       </ScrollView>
@@ -74,8 +119,8 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#E9282B',
+    fontFamily:'Roboto-Bold'
   },
 
   card: {
@@ -104,12 +149,28 @@ const styles = StyleSheet.create({
   },
   cardName: {
     fontSize: 12,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     color: '#fff',
   },
   cardRole: {
     fontSize: 9,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     color: '#fff',
   },
+  clientCardDesc:{
+    color:'#fff',
+    fontSize:18,
+    fontFamily:'Roboto-Regular',
+    marginVertical:10
+  },
+  clientCardName:{
+    color:'#fff',
+    fontSize:15,
+    fontFamily:'Roboto-Bold'
+  },
+  clientCardCom:{
+    color:'#fff',
+    fontSize:13,
+    fontFamily:'Roboto-Medium'
+  }
 });

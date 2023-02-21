@@ -3,43 +3,6 @@ import {View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 
 
-const Services = () => {
-  return (
-    <ScrollView>
-      <View style={{flex: 1}}>
-        <View style={{height: 60, justifyContent: 'center', marginTop:32}}>
-          <Text style={styles.heading_text} numberOfLines={2}>
-            SERVICES
-          </Text>
-        </View>
-        <FlatList
-          data={SERVICES_DATA}
-          renderItem={renderServicesCardView}
-          keyExtractor={item => item.id}
-          numColumns={2}
-          style={styles.container}
-          contentContainerStyle={styles.list}
-        />
-        <View style={{height: 60, justifyContent: 'center', marginTop:32}}>
-          <Text style={styles.heading_text} numberOfLines={2}>
-            OUR SPECIALIZATION
-          </Text>
-        </View>
-      </View>
-      <FlatList
-          data={SPECIALIZATION_DATA}
-          renderItem={renderSpecializationCardView}
-          keyExtractor={item => item.id}
-          style={styles.container}
-          contentContainerStyle={styles.list}
-        />
-    </ScrollView>
-  );
-};
-export default Services;
-
-const image = require('../Asset/services/service_card_background.png');
-
 const SERVICES_DATA = [
   {
     id: '1',
@@ -78,27 +41,7 @@ const SERVICES_DATA = [
       'Maintain your business identity while your competitors are making every effort to dent it',
   },
 ];
-const ServicesCardView = ({serviceItem}) => (
-  <View style={styles.service_card_layout}>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <View style={{flex: 1, padding: 8}}>
-        <View style={{height: 60, justifyContent: 'center'}}>
-          <Text style={styles.card_heading_text} numberOfLines={2}>
-            {serviceItem.heading}
-          </Text>
-        </View>
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={styles.card_content_text} numberOfLines={8}>
-            {serviceItem.content}
-          </Text>
-        </View>
-      </View>
-    </ImageBackground>
-  </View>
-);
-const renderServicesCardView = ({item}) => {
-  return <ServicesCardView serviceItem={item} />;
-};
+
 const SPECIALIZATION_DATA = [
   {
     id: '1',
@@ -126,43 +69,123 @@ const SPECIALIZATION_DATA = [
   },
   
 ];
-const SpecializationCardView = ({serviceItem}) => (
-  <View style={styles.specialization_card_layout}>
-    <View style={{height: 160, justifyContent: 'center'}}>
-    <ImageBackground source={require('../Asset/services/specialization_card_background.png')} resizeMode="cover" style={styles.image}>
-      <Image source={serviceItem.image}  resizeMode="contain" style={styles.image_icon}/>
-    </ImageBackground>
+
+
+
+
+const Services = () => {
+  const image = require('../Asset/services/service_card_background.png');
+
+  const ServicesCardView = ({serviceItem}) => (
+    <View style={styles.service_card_layout}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <View style={{flex: 1, padding: 8}}>
+          <View style={{height: 60, justifyContent: 'center'}}>
+            <Text style={styles.card_heading_text} numberOfLines={2}>
+              {serviceItem.heading}
+            </Text>
+          </View>
+          <View style={{flex: 1, justifyContent: 'center'}}>
+            <Text style={styles.card_content_text} numberOfLines={8}>
+              {serviceItem.content}
+            </Text>
+          </View>
+        </View>
+      </ImageBackground>
     </View>
-    <View style={{flex: 1, padding: 8}}>
-        <View style={{height: 30,alignItems: 'flex-start'}}>
-          <Text style={styles.specialization_card_subtitle_text} numberOfLines={2}>
-            SPECIALIZATION
-          </Text>
-        </View>
-        <View style={{height: 30,alignItems: 'flex-start'}}>
-          <Text style={styles.specialization_card_heading_text} numberOfLines={2}>
-            {serviceItem.service}
-          </Text>
-        </View>
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={styles.specialization_card_content_text} numberOfLines={8}>
-            {serviceItem.description}
-          </Text>
-        </View>
+  );
+  const renderServicesCardView = ({item}) => {
+    return <ServicesCardView serviceItem={item} />;
+  };
+  
+  const SpecializationCardView = ({serviceItem}) => (
+    <View style={styles.specialization_card_layout}>
+      <View style={{height: 160, justifyContent: 'center'}}>
+      <ImageBackground source={require('../Asset/services/specialization_card_background.png')} resizeMode="cover" style={styles.image}>
+        <Image source={serviceItem.image}  resizeMode="contain" style={styles.image_icon}/>
+      </ImageBackground>
       </View>
-    <View>
-
+      <View style={{flex: 1, padding: 8}}>
+          <View style={{height: 30,alignItems: 'flex-start'}}>
+            <Text style={styles.specialization_card_subtitle_text} numberOfLines={2}>
+              SPECIALIZATION
+            </Text>
+          </View>
+          <View style={{height: 30,alignItems: 'flex-start'}}>
+            <Text style={styles.specialization_card_heading_text} numberOfLines={2}>
+              {serviceItem.service}
+            </Text>
+          </View>
+          <View style={{flex: 1, justifyContent: 'center'}}>
+            <Text style={styles.specialization_card_content_text} numberOfLines={8}>
+              {serviceItem.description}
+            </Text>
+          </View>
+        </View>
+      <View>
+  
+      </View>
     </View>
-  </View>
+  
+  );
+  
+  const renderSpecializationCardView = ({item}) => {
+    return <SpecializationCardView serviceItem={item} />;
+  };
 
-);
-
-const renderSpecializationCardView = ({item}) => {
-  return <SpecializationCardView serviceItem={item} />;
+  return (
+    <ScrollView>
+      <View style={styles.main}>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.heading}>
+            SERVICES
+          </Text>
+        </View>
+        <FlatList
+          data={SERVICES_DATA}
+          renderItem={renderServicesCardView}
+          keyExtractor={item => item.id}
+          numColumns={2}
+          style={styles.container}
+          contentContainerStyle={styles.list}
+        />
+        <View style={{height: 60, justifyContent: 'center', marginTop:32}}>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.heading}>
+            OUR SPECIALIZATION
+          </Text>
+        </View>
+        </View>
+      <FlatList
+          data={SPECIALIZATION_DATA}
+          renderItem={renderSpecializationCardView}
+          keyExtractor={item => item.id}
+          style={styles.container}
+          contentContainerStyle={styles.list}
+        />
+        </View>
+    </ScrollView>
+  );
 };
+
+export default Services;
+
 
 
 const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  headerWrapper: {
+    marginHorizontal: 15,
+    marginVertical: 10,
+  },
+  heading: {
+    fontSize: 18,
+    color: '#E9282B',
+    fontFamily:'Roboto-Bold'
+  },
   container: {
     flex: 1,
     padding: 8,
@@ -192,8 +215,6 @@ const styles = StyleSheet.create({
   },
 
   service_card_layout: {
-    // height: 160,
-    // width: 170,
     height: 170,
     width: 180,
     borderRadius: 10,
@@ -206,7 +227,7 @@ const styles = StyleSheet.create({
     width: 360,
     borderRadius: 10,
     justifyContent: 'flex-start',
-    borderColor:'#6E798C',
+    borderColor:'#D9D0E3',
     borderWidth: 2,
     margin: 3,
   },
@@ -223,7 +244,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {width: 1, height: 1},
     textShadowRadius: 10,
@@ -231,6 +252,7 @@ const styles = StyleSheet.create({
   card_content_text: {
     color: 'white',
     fontSize: 12,
+    fontFamily:'Roboto-Regular',
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {width: 1, height: 1},
@@ -239,7 +261,7 @@ const styles = StyleSheet.create({
   specialization_card_subtitle_text: {
     color: '#6E798C',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     // textShadowColor: 'rgba(0, 0, 0, 0.75)',
     // textShadowOffset: {width: 1, height: 1},
     // textShadowRadius: 4,
@@ -247,7 +269,7 @@ const styles = StyleSheet.create({
   specialization_card_heading_text: {
     color: '#081F32',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily:'Roboto-Bold',
     // textShadowColor: 'rgba(0, 0, 0, 0.75)',
     // textShadowOffset: {width: 1, height: 1},
     // textShadowRadius: 4,
@@ -256,6 +278,7 @@ const styles = StyleSheet.create({
   specialization_card_content_text: {
     color: '#374A59',
     fontSize: 14,
+    fontFamily:'Roboto-Regular'
     // textShadowColor: 'rgba(0, 0, 0, 0.75)',
     // textShadowOffset: {width: 1, height: 1},
     // textShadowRadius: 4,
