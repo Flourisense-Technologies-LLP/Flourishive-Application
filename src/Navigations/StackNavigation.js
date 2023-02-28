@@ -1,11 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Sample from '../Screens/Home';
 import DrawerNavigation from './DrawerNavigation';
 import Slider from '../Screens/Sliders/Slider';
 import SignIn from '../Screens/Authentication/SignIn';
 import SignUp from '../Screens/Authentication/SignUp';
 import ForgotPass from '../Screens/Authentication/ForgotPass';
+import Profile from '../Screens/Profile/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +46,13 @@ const StackNavigation = () => {
         component={ForgotPass}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: true,
         }}
       />
     </Stack.Navigator>

@@ -7,6 +7,7 @@ import Clients from '../Screens/Clients';
 import AboutUs from '../Screens/AboutUs';
 import ContactUs from '../Screens/ContactUs';
 import JoinUs from '../Screens/JoinUs';
+import CustomDrawer from './CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,7 +15,7 @@ const DrawerNavigation = () => {
 
 
   return (
-    <Drawer.Navigator initialRouteName='Sample'>
+    <Drawer.Navigator drawerContent={props => <CustomDrawer {...props}/>} initialRouteName='Home'>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Services" component={Services} />
       <Drawer.Screen name="Technologies" component={Technologies} />
