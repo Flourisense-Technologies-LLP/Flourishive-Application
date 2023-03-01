@@ -12,34 +12,28 @@ const cardData = [
   },
   {
     id: 2,
-    img: require('../Asset/slider/tech.jpg'),
-    heading: 'Front End',
-    desc: 'Angular, React Js, Vue. Angular, React Js, Vue.asdfadfadfa'
+    img: require('../Asset/Tech/wordPress.jpg'),
+    heading: 'Word Press',
+    desc: 'WordPress is a content management system (CMS) that allows you to host and build websites.'
   },
   {
     id: 3,
-    img: require('../Asset/slider/tech.jpg'),
-    heading: 'Front End',
-    desc: 'Angular, React Js, Vue. Angular, React Js, Vue.asdfadfadfa'
+    img: require('../Asset/Tech/gameDev.jpg'),
+    heading: 'Game Development',
+    desc: 'Gamers can feel when developers are passionate about their games'
   },
   {
     id: 4,
-    img: require('../Asset/slider/tech.jpg'),
-    heading: 'Front End',
-    desc: 'Angular, React Js, Vue. Angular, React Js, Vue.asdfadfadfa'
+    img: require('../Asset/Tech/application.jpg'),
+    heading: 'Application Development',
+    desc: 'An app is not all about technology It is a dream for future.'
   },
   {
     id: 5,
-    img: require('../Asset/slider/tech.jpg'),
-    heading: 'Front End',
-    desc: 'Angular, React Js, Vue. Angular, React Js, Vue.asdfadfadfa'
+    img: require('../Asset/Tech/cyberSec.jpg'),
+    heading: 'Cyber Security',
+    desc: 'Cyber-Security is much more than a matter of IT.'
   },
-  {
-    id: 6,
-    img: require('../Asset/slider/tech.jpg'),
-    heading: 'Front End',
-    desc: 'Angular, React Js, Vue. Angular, React Js, Vue.asdfadfadfa'
-  }
 ]
 
 const Technologies = () => {
@@ -55,7 +49,7 @@ const Technologies = () => {
   )
 
   const renderItem = ({item})=>(
-    <View style ={{width: '48%', margin: '1%', borderWidth: .55, borderRadius: 10} }>
+    <View style ={{width: '48%', margin: '1%', borderWidth: 1, borderRadius: 10} }>
       <Image source={item.img}/>
       <Text 
         style={{marginLeft: 16, 
@@ -74,7 +68,7 @@ const Technologies = () => {
 
   return (
     <ScrollView>
-      <View>
+      <View >
         <View style={{padding: 11}}>
           <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', marginTop: 20, marginBottom: 20}}>
             Technologies
@@ -86,13 +80,14 @@ const Technologies = () => {
             renderItem={renderItem}
             
           />
-          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', paddingBottom: 20, marginTop: 20, marginBottom: 20}}>
+          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', paddingBottom: 10, marginTop: 20, marginBottom: 20}}>
             Technologies On Which we work
           </Text>
       </View>
 
-      <View>
+      <View style = {{}}>
       <FlatList
+          style ={{borderWidth: 1, borderRadius: 10}}
           horizontal
           showsHorizontalScrollIndicator={false}
           data={cardData}
