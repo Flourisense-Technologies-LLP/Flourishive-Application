@@ -8,7 +8,7 @@ const cardData = [
     id: 1,
     img: require('../Asset/slider/tech.jpg'),
     heading: 'Front End',
-    desc: 'Angular, React Js, Vue.asdfadfadfa Angular, React Js, Vue.asdfadfadfa'
+    desc: 'Angular, Re act Js, Angular, React Js.'
   },
   {
     id: 2,
@@ -38,10 +38,10 @@ const cardData = [
 
 const Technologies = () => {
   const tab = ({ item }) => (
-    <View style={{ width: width}}>
-      <View style={{padding: 11, flexDirection: 'row'}}>
-        <Image source={item.img} style={{borderRadius: 10, margin: 11}}/>
-        <Text style={{width: width/2, margin: 11, paddingRight: 10}}>
+    <View style={{ width: width - 18, padding: 11}}>
+      <View style={{padding: 11, flexDirection: 'row', borderWidth: 1, borderRadius: 10}}>
+        <Image source={item.img} style={{borderRadius: 10, }}/>
+        <Text style={{width: width/2 - 10, margin: 10}}>
           {item.desc}
         </Text>
       </View>
@@ -50,12 +50,14 @@ const Technologies = () => {
 
   const renderItem = ({item})=>(
     <View style ={{width: '48%', margin: '1%', borderWidth: 1, borderRadius: 10} }>
-      <Image source={item.img}/>
+      <Image source={item.img} style={{alignSelf: "center"}}/>
       <Text 
         style={{marginLeft: 16, 
         fontWeight: 'bold', 
         fontSize: 20,
-        paddingTop: 5}}>
+        paddingTop: 5,
+        alignSelf: 'center'
+        }}>
           {item.heading}
       </Text>
 
@@ -80,14 +82,13 @@ const Technologies = () => {
             renderItem={renderItem}
             
           />
-          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', paddingBottom: 10, marginTop: 20, marginBottom: 20}}>
+          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#E9282B', marginTop: 20, marginBottom: 20}}>
             Technologies On Which we work
           </Text>
       </View>
 
-      <View style = {{}}>
+      <View style = {{paddingBottom: 11, paddingLeft: 6, paddingRight: 11}}>
       <FlatList
-          style ={{borderWidth: 1, borderRadius: 10}}
           horizontal
           showsHorizontalScrollIndicator={false}
           data={cardData}
