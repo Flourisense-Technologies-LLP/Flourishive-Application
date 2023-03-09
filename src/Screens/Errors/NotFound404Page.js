@@ -1,10 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ImageBackground} from 'react-native';
-import {
-  FlatList,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
+import {View, Text, Image} from 'react-native';
 
 const NotFound404Page = () => {
   return (
