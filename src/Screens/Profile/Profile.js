@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View , PermissionsAndroid , Platform, Alert } from 'react-native'
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+// import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const Profile = () => {
 
